@@ -1,6 +1,17 @@
 let grid;
 let score = 0;
 
+function isGameWon() {
+  for (let i = 0; i < 4; i++) {
+    for (let j = 0; j < 4; j++) {
+      if (grid[i][j] == 2048) {
+          return true;
+      }
+    }
+  }
+  return false;
+}
+
 function isGameOver() {
   let gameover = true;
   for (let i = 0; i < 4; i++) {
@@ -52,7 +63,7 @@ function addNumber() {
   if (options.length > 0){
     let spot = random(options);
     let r = random(1);
-    grid[spot.x][spot.y] = r > 0.5 ? 2 : 4;
+    grid[spot.x][spot.y] = r > 0.5 ? 256 : 512;
   }
 }
 
@@ -145,6 +156,10 @@ function keyPressed() {
   if (gameover) {
     console.log("Game Over");
   }
+  let gameWon = isGameWon();
+  if (gameWon) {
+    console.log("Game Won")
+  }
 }
 
 function operate(row) {
@@ -196,7 +211,7 @@ function drawGrid() {
         let val = grid[i][j]
         let s = val.toString();
         let len = s.length;
-        let sizes= [64,64,32,16]
+        let sizes= [64,64,36,24]
         textSize(sizes[len-1]);
         text(val, i * w + w / 2, j * w + w / 2);
       }
