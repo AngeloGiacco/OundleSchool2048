@@ -63,7 +63,7 @@ function addNumber() {
   if (options.length > 0){
     let spot = random(options);
     let r = random(1);
-    grid[spot.x][spot.y] = r > 0.5 ? 256 : 512;
+    grid[spot.x][spot.y] = r > 0.5 ? 2 : 4;
   }
 }
 
@@ -202,17 +202,20 @@ function drawGrid() {
     for (let j = 0; j < 4; j++) {
       noFill();
       strokeWeight(2);
+      let val = grid[i][j]
+      let s = val.toString();
       stroke(0);
+      if (val != 0) {
+        fill(colorsSizes[s].color);
+      }else{
+        noFill();
+      }
       rect(i*w,j*w,w,w);
       if (grid[i][j] !== 0) {
         textAlign(CENTER,CENTER);
-        fill(0);
         noStroke();
-        let val = grid[i][j]
-        let s = val.toString();
-        let len = s.length;
-        let sizes= [64,64,36,24]
-        textSize(sizes[len-1]);
+        fill(0);
+        textSize(colorsSizes[s].size);
         text(val, i * w + w / 2, j * w + w / 2);
       }
     }
