@@ -1,4 +1,5 @@
 let grid;
+let img;
 let score = 0;
 
 function setup(){
@@ -77,18 +78,15 @@ function drawGrid() {
       let val = grid[i][j]
       let s = val.toString();
       stroke(0);
-      if (val != 0) {
-        fill(colorsSizes[s].color);
-      }else{
-        noFill();
-      }
       rect(i*w,j*w,w,w);
-      if (grid[i][j] !== 0) {
+      if (val == 0) {
+        noFill();
+      } else {
         textAlign(CENTER,CENTER);
         noStroke();
         fill(0);
-        textSize(colorsSizes[s].size);
-        text(val, i * w + w / 2, j * w + w / 2);
+        img = loadImage(imageObject[s]);
+        image(img, i * w + w / 2, j * w + w / 2);
       }
     }
   }
