@@ -1,7 +1,7 @@
 let colorsSizes = {
   "2": {
     size: 64,
-    color: "#F35956"
+    color: "#68eddf"
   },
   "4": {
     size: 64,
@@ -33,7 +33,7 @@ let colorsSizes = {
   },
   "512": {
     size: 36,
-    color: "#00000"
+    color: "#e89b0d"
   },
   "1024": {
     size: 64,
