@@ -1,46 +1,58 @@
-let colorsSizes = {
-  "2": {
-    size: 64,
-    color: "#68eddf"
+let colorsSizes =  {
+   "2": {
+    text:"New House",
+    color: "#312877"
   },
   "4": {
-    size: 64,
-    color: "#F35956"
+    text:"Sanderson",
+    color: "#918abe"
   },
   "8": {
-    size: 64,
-    color: "#49BB6C"
+    text:"Dryden",
+    color: "#e21e44"
   },
   "16": {
-    size: 64,
-    color: "#2494C1"
+    text:"Kirkeby",
+    color: "#006332"
   },
   "32": {
-    size: 64,
-    color: "#9659A7"
+    text:"Wyatt",
+    color: "#082b76"
   },
   "64": {
-    size: 64,
-    color: "#F1C500"
+    text:"Fisher",
+    color: "#15368b"
   },
   "128": {
-    size: 36,
-    color: "#FF5956"
+    text:"Crosby",
+    color: "#9b1f3a"
   },
   "256": {
-    size: 36,
-    color: "#F1C5FF"
+    text:"Grafton",
+    color: "#85bce3"
   },
   "512": {
-    size: 36,
-    color: "#e89b0d"
+    text:"Sidney",
+    color: "#ac7aaf"
   },
   "1024": {
-    size: 64,
-    color: "#24FFC1"
+    text:"St. A",
+    color: "#e33282"
   },
   "2048": {
-    size: 64,
-    color: "#A659A9"
+    text:"School",
+    color: "#e21e44"
   },
+  "4096": {
+    text:"Bramston",
+    color: "#000000"
+  },
+  "8192": {
+    text:"Laundimer",
+    color: "#5d352a"
+  },
+  "16384": {
+    text:"LAXTON",
+    color: "#0079c0"
+  }
 }

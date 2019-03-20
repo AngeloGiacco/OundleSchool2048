@@ -8,7 +8,7 @@ function operate(row) {
 // making new array
 function slide(row) {
   let arr = row.filter(val => val);
-  let missing = 4 - arr.length;
+  let missing = 5 - arr.length;
   let zeros = Array(missing).fill(0);
   arr = zeros.concat(arr);
   return arr;
@@ -16,7 +16,7 @@ function slide(row) {
 
 // operating on array itself
 function combine(row) {
-  for (let i = 3; i >= 1; i--) {
+  for (let i = 4; i >= 1; i--) {
     let a = row[i];
     let b = row[i - 1];
     if (a == b) {
@@ -29,9 +29,9 @@ function combine(row) {
 }
 
 function isGameWon() {
-  for (let i = 0; i < 4; i++) {
-    for (let j = 0; j < 4; j++) {
-      if (grid[i][j] == 2048) {
+  for (let i = 0; i < 5; i++) {
+    for (let j = 0; j < 5; j++) {
+      if (grid[i][j] == 16384) {
         return true;
       }
     }
@@ -41,15 +41,15 @@ function isGameWon() {
 
 
 function isGameOver() {
-  for (let i = 0; i < 4; i++) {
-    for (let j = 0; j < 4; j++) {
+  for (let i = 0; i < 5; i++) {
+    for (let j = 0; j < 5; j++) {
       if (grid[i][j] == 0) {
         return false;
       }
-      if (i !== 3 && grid[i][j] === grid[i + 1][j]) {
+      if (i !== 4 && grid[i][j] === grid[i + 1][j]) {
         return false;
       }
-      if (j !== 3 && grid[i][j] === grid[i][j + 1]) {
+      if (j !== 4 && grid[i][j] === grid[i][j + 1]) {
         return false;
       }
     }
