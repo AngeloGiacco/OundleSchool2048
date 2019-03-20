@@ -11,6 +11,27 @@ function setup(){
   updateCanvas();
 }
 
+function getMax(a){
+  return Math.max(...a.map(e => Array.isArray(e) ? getMax(e) : e));
+}
+
+function checkLevel() {
+  var level = "Level = ";
+  max = getMax(grid);
+  if (max > 4096) {
+    level += "legendary";
+  } else if (max > 1024) {
+    level += "pro";
+  } else if (max > 256) {
+    level += "decent";
+  } else if (max > 64) {
+    level += "novice";
+  }else {
+    level += "noob";
+  }
+  return level;
+}
+
 function keyPressed() {
   let flipped = false;
   let rotated = false;
@@ -60,7 +81,7 @@ function keyPressed() {
   }
   let gameWon = isGameWon();
   if (gameWon) {
-    alert("you won, here is your reward");
+    alert("You got to the LAXTON tile!!! You have won, here is your reward");
     window.location.href = "https://www.oundleschool.org.uk/MainFolder/oundle-school/pastoral/houses-and-hsm/schoolhouse_hsm.JPG";
   }
 }
@@ -68,7 +89,8 @@ function keyPressed() {
 function updateCanvas() {
   background(255);
   drawGrid();
-  select("#score").html(score)
+  select("#score").html(score);
+  select("#level").html(checkLevel());
 }
 
 function drawGrid() {
