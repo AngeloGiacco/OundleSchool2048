@@ -1,15 +1,16 @@
 function blankGrid() {
   return [
-    [0, 0, 0, 0],
-    [0, 0, 0, 0],
-    [0, 0, 0, 0],
-    [0, 0, 0, 0]
+    [0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0]
   ];
 }
 
 function compare(a, b) {
-  for (let i = 0; i < 4; i++) {
-    for (let j = 0; j < 4; j++) {
+  for (let i = 0; i < 5; i++) {
+    for (let j = 0; j < 5; j++) {
       if (a[i][j] !== b[i][j]) {
         return true;
       }
@@ -20,8 +21,8 @@ function compare(a, b) {
 
 function copyGrid(grid) {
   let extra = blankGrid();
-  for (let i = 0; i < 4; i++) {
-    for (let j = 0; j < 4; j++) {
+  for (let i = 0; i < 5; i++) {
+    for (let j = 0; j < 5; j++) {
       extra[i][j] = grid[i][j];
     }
   }
@@ -29,7 +30,7 @@ function copyGrid(grid) {
 }
 
 function flipGrid(grid) {
-  for (let i = 0; i < 4; i++) {
+  for (let i = 0; i < 5; i++) {
     grid[i].reverse();
   }
   return grid;
@@ -37,8 +38,8 @@ function flipGrid(grid) {
 
 function rotateGrid(grid) {
   let newGrid = blankGrid();
-  for (let i = 0; i < 4; i++) {
-    for (let j = 0; j < 4; j++) {
+  for (let i = 0; i < 5; i++) {
+    for (let j = 0; j < 5; j++) {
       newGrid[i][j] = grid[j][i];
     }
   }
@@ -47,8 +48,8 @@ function rotateGrid(grid) {
 
 function addNumber() {
   let options = [];
-  for (let i = 0; i < 4; i++) {
-    for (let j = 0; j < 4; j++) {
+  for (let i = 0; i < 5; i++) {
+    for (let j = 0; j < 5; j++) {
       if (grid[i][j] === 0) {
         options.push({
           x: i,
@@ -60,6 +61,6 @@ function addNumber() {
   if (options.length > 0) {
     let spot = random(options);
     let r = random(1);
-    grid[spot.x][spot.y] = r > 0.1 ? 2 : 4;
+    grid[spot.x][spot.y] = r > 0.1 ? 2048 : 1024;
   }
 }

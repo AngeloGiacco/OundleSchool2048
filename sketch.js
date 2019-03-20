@@ -3,7 +3,7 @@ let img;
 let score = 0;
 
 function setup(){
-  createCanvas(400,400);
+  createCanvas(500,500);
   noLoop();
   grid = blankGrid();
   addNumber();
@@ -33,7 +33,7 @@ function keyPressed() {
   }
   if (played) {
     let past = copyGrid(grid);
-    for (let i = 0; i < 4; i++) {
+    for (let i = 0; i < 5; i++) {
       grid[i] = operate(grid[i]);
     }
     let changed = compare(past,grid);
@@ -55,11 +55,13 @@ function keyPressed() {
 
   let gameover = isGameOver();
   if (gameover) {
-    console.log("Game Over");
+    alert("You lost, lol, here is your punishment");
+    window.location.href = "https://www.oundleschool.org.uk/MainFolder/oundle-school/pastoral/houses-and-hsm/laxtonhsm.JPG";
   }
   let gameWon = isGameWon();
   if (gameWon) {
-    console.log("Game Won")
+    alert("you won, here is your reward");
+    window.location.href = "https://www.oundleschool.org.uk/MainFolder/oundle-school/pastoral/houses-and-hsm/schoolhouse_hsm.JPG";
   }
 }
 
@@ -71,25 +73,21 @@ function updateCanvas() {
 
 function drawGrid() {
   let w = 100;
-  for (let i = 0; i < 4; i++) {
-    for (let j = 0; j < 4; j++) {
+  for (let i = 0; i < 5; i++) {
+    for (let j = 0; j < 5; j++) {
       noFill();
       strokeWeight(2);
       let val = grid[i][j]
       let s = val.toString();
       stroke(0);
       rect(i*w,j*w,w,w);
-      if (val == 0) {
-        noFill();
-      } else {
+      if (grid[i][j] !== 0) {
         textAlign(CENTER,CENTER);
         noStroke();
-        fill(0);
-        img = loadImage(imageObject[s]);
-        image(img, i * w + w / 2, j * w + w / 2);
+        fill(colorsSizes[s].color);
+        textSize(20);
+        text(colorsSizes[s].text, i * w + w / 2, j * w + w / 2);
       }
     }
   }
 }
-
-setup()
