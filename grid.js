@@ -61,6 +61,6 @@ function addNumber() {
   if (options.length > 0) {
     let spot = random(options);
     let r = random(1);
-    grid[spot.x][spot.y] = r > 0.1 ? 2048 : 1024;
+    grid[spot.x][spot.y] = r > 0.1 ? 2 : 4;
   }
 }
