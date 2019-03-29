@@ -11,6 +11,6 @@ canvas {
 }
 #fork_me{
 	position: fixed;
-	right: 0;
-	top: 0;
+	right: -25px;
+	top: -25px;
 }
