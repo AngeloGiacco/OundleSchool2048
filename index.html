@@ -4,17 +4,30 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-
+	<link rel="icon" href="favicon.ico">
+	<link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="assets/style.css">
 	<title>Oundle 2048</title>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/p5.js"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/addons/p5.dom.js"></script>
-	<script type="text/javascript" src="sketch.js"></script>
-  <script type="text/javascript" src="config.js"></script>
-	<script type="text/javascript" src = "game.js"></script>
-	<script type="text/javascript" src = "grid.js"></script>
+	<script type="text/javascript" src="assets/sketch.js"></script>
+  <script type="text/javascript" src="assets/config.js"></script>
+	<script type="text/javascript" src = "assets/game.js"></script>
+	<script type="text/javascript" src = "assets/grid.js"></script>
 </head>
-<body>
-	<p style="font-size:32pt" id="score"></p>
-	<p style="font-size:32pt" id="level"></p>
+<body style = "margin:0;overflow:hidden">
+  <div class="container">
+	  <h3>💯OundleSchool 2048💯</h3>
+	  <p> 🎯gain points by joining identical tiles🎯<br>
+			🚀work up the levels to SKD herself🚀<br>
+			❓Can you reach the ultimate tile❓<br>
+	   💀It's game over when the grid is full and no tiles can be merged💀<br>
+		<p style="font-size:16pt" id="score"></p>
+	 	<p style="font-size:16pt" id="level"></p>
+		<a id="fork_me" href = "https://github.com/AngeloGiacco/OundleSchool2048"><img src="assets/fork.png"></a>
+	</div>
+	<div id ="psst">
+		<p>Pssst, whilst you're here, Adam Choy L L6 is single and ready to mingle</p>
+	</div>
 </body>
 </html>
