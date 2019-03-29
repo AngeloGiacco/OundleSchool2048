@@ -19,15 +19,17 @@ function checkLevel() {
   var level = "Level = ";
   max = getMax(grid);
   if (max > 4096) {
-    level += "legendary";
+    level += "SKD";
   } else if (max > 1024) {
-    level += "pro";
+    level += "Mrs Watt";
   } else if (max > 256) {
-    level += "decent";
+    level += "Mr Langsdale";
   } else if (max > 64) {
-    level += "novice";
+    level += "Mrs Gascoine";
+  } else if (max > 16) {
+    level += "Mr Heath";
   }else {
-    level += "noob";
+    level += "Mr Ho";
   }
   return level;
 }
