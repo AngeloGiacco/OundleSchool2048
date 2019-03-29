@@ -14,3 +14,10 @@ canvas {
 	right: 0;
 	top: 0;
 }
+
+#psst{
+	position: fixed;
+	left: 10px;
+	bottom: 30px;
+  width:25%;
+}
