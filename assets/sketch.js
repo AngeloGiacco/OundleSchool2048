@@ -2,6 +2,19 @@ let grid;
 let img;
 let score = 0;
 
+function createText() {
+  winText = createP('🎉🎉🎉 YOU GOT TO THE LEGENDARY LASHTUN TILE! YOU WIN! 🎉🎉🎉');
+  winText.style('display', 'none');
+  winText.style('color', 'red');
+  winText.style('text-align', 'center');
+  winText.position(width / 2, 240);
+  lostText = createP("☠️☠️☠️You didn't reach the legendary tile...☠️☠️☠️");
+  lostText.style('display', 'none');
+  lostText.style('color', 'red');
+  lostText.style('text-align', 'center');
+  lostText.position(width / 2, 240);
+}
+
 function setup(){
   createCanvas(500,500);
   noLoop();
@@ -9,6 +22,7 @@ function setup(){
   addNumber();
   addNumber();
   updateCanvas();
+  createText()
 }
 
 function getMax(a){
@@ -35,56 +49,56 @@ function checkLevel() {
 }
 
 function keyPressed() {
-  let flipped = false;
-  let rotated = false;
-  let played = true;
-  if (keyCode === DOWN_ARROW) {
-    //do nothing
-  } else if (keyCode === UP_ARROW) {
-    flipGrid(grid);
-    flipped = true;
-  } else if (keyCode === RIGHT_ARROW) {
-    grid = rotateGrid(grid);
-    rotated = true;
-  } else if (keyCode === LEFT_ARROW) {
-    grid = rotateGrid(grid);
-    grid = flipGrid(grid);
-    rotated = true;
-    flipped = true;
-  } else {
-    played = false;
-  }
-  if (played) {
-    let past = copyGrid(grid);
-    for (let i = 0; i < 5; i++) {
-      grid[i] = operate(grid[i]);
-    }
-    let changed = compare(past,grid);
-    if (flipped) {
+  if (!(isGameOver() || isGameWon())) {
+    let flipped = false;
+    let rotated = false;
+    let played = true;
+    if (keyCode === DOWN_ARROW) {
+      //do nothing
+    } else if (keyCode === UP_ARROW) {
       flipGrid(grid);
+      flipped = true;
+    } else if (keyCode === RIGHT_ARROW) {
+      grid = rotateGrid(grid);
+      rotated = true;
+    } else if (keyCode === LEFT_ARROW) {
+      grid = rotateGrid(grid);
+      grid = flipGrid(grid);
+      rotated = true;
+      flipped = true;
+    } else {
+      played = false;
     }
-
-    if (rotated) {
-      for (let i = 0; i < 3; i++) {
-        grid  = rotateGrid(grid);
+    if (played) {
+      let past = copyGrid(grid);
+      for (let i = 0; i < 5; i++) {
+        grid[i] = operate(grid[i]);
       }
+      let changed = compare(past,grid);
+      if (flipped) {
+        flipGrid(grid);
+      }
+
+      if (rotated) {
+        for (let i = 0; i < 3; i++) {
+          grid  = rotateGrid(grid);
+        }
+      }
+
+      if (changed) {
+        addNumber();
+      }
+      updateCanvas();
     }
 
-    if (changed) {
-      addNumber();
+    let gameover = isGameOver();
+    if (gameover) {
+      lostText.style('display', 'block');
     }
-    updateCanvas();
-  }
-
-  let gameover = isGameOver();
-  if (gameover) {
-    alert("You lost, lol, here is your punishment");
-    window.location.href = "https://www.oundleschool.org.uk/MainFolder/oundle-school/pastoral/houses-and-hsm/laxtonhsm.JPG";
-  }
-  let gameWon = isGameWon();
-  if (gameWon) {
-    alert("You got to the LAXTON tile!!! You have won, here is your reward");
-    window.location.href = "https://www.oundleschool.org.uk/MainFolder/oundle-school/pastoral/houses-and-hsm/schoolhouse_hsm.JPG";
+    let gameWon = isGameWon();
+    if (gameWon) {
+      winText.style('display', 'block');
+    }
   }
 }
 
